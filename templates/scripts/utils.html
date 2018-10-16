@@ -1,0 +1,19 @@
+<script>
+  function afterNextRender (fn) {
+    setTimeout(fn, 100);
+  }
+
+  function printValue (name, value) {
+    var element = main.querySelector('[data-var=' + name + ']');
+    element.textContent = value;
+  }
+
+  function inputValue (name, value) {
+    var element = main.querySelector('[name=' + name + ']');
+    element.value = value;
+  }
+
+  function processForm (form, handler, callback) {
+    google.script.run.withSuccessHandler(callback)[handler](form);
+  }
+</script>

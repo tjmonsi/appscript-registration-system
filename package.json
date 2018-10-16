@@ -1,0 +1,22 @@
+{
+  "name": "appscript-registration-system",
+  "version": "0.0.1",
+  "description": "appscript based registration system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tjmonsi/appscript-registration-system.git"
+  },
+  "author": "TJ Monserrat",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tjmonsi/appscript-registration-system/issues"
+  },
+  "homepage": "https://github.com/tjmonsi/appscript-registration-system#readme",
+  "dependencies": {
+    "@google/clasp": "^1.6.3"
+  }
+}

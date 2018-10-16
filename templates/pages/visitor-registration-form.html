@@ -1,0 +1,64 @@
+<template id="visitor-registration">
+  <section class="page">
+    <div class="card">
+      <p class="paragraph">
+        Registration as Visitor
+      </p>
+
+      <form onsubmit="event.preventDefault();handleVisitorRegistration(this)">
+        <div class="input-group">
+          <label for="visitor-name">
+            Name
+          </label>
+          <input name="name" id="visitor-name" placeholder="Juan Dela Cruz" required>
+        </div>
+        <div class="input-group">
+          <label for="visitor-email">
+            Email
+          </label>
+          <input name="email" type="email" id="visitor-email" placeholder="juan@delacruz.com" required>
+        </div>
+        <div class="input-group">
+          <label for="visitor-industry">
+            Industry
+          </label>
+          <input name="industry" id="visitor-industry" placeholder="Industry type: e.g. business" required>
+        </div>
+        <div class="input-group">
+          <label for="visitor-company">
+            Company
+          </label>
+          <input name="company"id="visitor-company"  placeholder="Company's name" required>
+        </div>
+        <div class="input-group">
+          <label for="visitor-contact">
+            Contact Number
+          </label>
+          <input name="contact" id="visitor-contact" type="tel" placeholder="Company or cellphone number" required>
+        </div>
+        <div class="input-group">
+          <label for="visitor-invited">
+            Invited By Whom
+          </label>
+          <input name="invited" id="visitor-invited" placeholder="Person who invited you" required>
+        </div>
+        <div class="button-group">
+          <button class="button">Register</button>
+          <button class="button" type="reset">Reset</button>
+          <a class="button" onclick="changePage('home')">Home</a>
+        </div>
+      </form>
+    </div>
+  </section>
+</template>
+
+<script>
+  function handleVisitorRegistration (form) {
+    processForm(form, 'processVisitorRegistration', visitorRegistrationCallback);
+  }
+
+  function visitorRegistrationCallback (data) {
+    changePage('visitor-registration-done');
+    afterNextRender(function () { printValue ('name', data.name); });
+  }
+</script>

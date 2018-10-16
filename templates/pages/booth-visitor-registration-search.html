@@ -1,0 +1,38 @@
+<template id="booth-visitor-registration-search">
+  <section class="page">
+    <div class="card">
+      <p>
+        Please put the email of the person you want to check...
+      </p>
+      <form onsubmit="event.preventDefault();handleBoothVisitorRegistrationSearch(this)">
+        <div class="input-group">
+          <label for="booth-visitor-email-search">
+            Email
+          </label>
+          <input name="email" type="email" id="booth-visitor-email-search" placeholder="Email" required>
+        </div>
+
+        <div class="button-group">
+          <button class="button">Search</button>
+          <button class="button" type="reset">Reset</button>
+          <a class="button" onclick="changePage('home')">Go back</a>
+        </div>
+      </form>
+    </div>
+  </section>
+</template>
+
+<script>
+  function handleBoothVisitorRegistrationSearch (form) {
+    processForm(form, 'processBoothVisitorRegistrationSearch', boothVisitorRegistrationSearchCallback);
+  }
+
+  function boothVisitorRegistrationSearchCallback (data) {
+    if (data && data.email) {
+      changePage('booth-visitor-registration-form');
+      afterNextRender(function () { for (var i in data) { inputValue(i, data[i]); }});
+    } else {
+      changePage('booth-visitor-registration-not-found');
+    }
+  }
+</script>

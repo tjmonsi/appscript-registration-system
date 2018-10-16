@@ -1,0 +1,11 @@
+<script>
+  function changePage (page) {
+    var template = document.querySelector('#' + page);
+    main.innerHTML = '';
+    if (template) {
+      main.appendChild(template.content.cloneNode(true));
+    } else {
+      main.appendChild(document.querySelector('#not-found').content.cloneNode(true));
+    }
+  }
+</script>

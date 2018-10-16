@@ -1,0 +1,70 @@
+<template id="booth-visitor-registration-form">
+  <section class="page">
+    <div class="card">
+      <p class="paragraph">
+        Registration as Visitor
+      </p>
+
+      <form onsubmit="event.preventDefault();handleBoothVisitorRegistration(this)">
+        <div class="input-group">
+          <label for="booth-visitor-name">
+            Name
+          </label>
+          <input name="name" id="booth-visitor-name" placeholder="Juan Dela Cruz" required>
+        </div>
+        <div class="input-group">
+          <label for="booth-visitor-email">
+            Email
+          </label>
+          <input name="email" id="booth-visitor-email" type="email" placeholder="juan@delacruz.com" required>
+        </div>
+        <div class="input-group">
+          <label for="booth-visitor-industry">
+            Industry
+          </label>
+          <input name="industry" id="booth-visitor-industry" placeholder="Industry type: e.g. business" required>
+        </div>
+        <div class="input-group">
+          <label for="booth-visitor-company">
+            Company
+          </label>
+          <input name="company" id="booth-visitor-company" placeholder="Company's name" required>
+        </div>
+        <div class="input-group">
+          <label for="booth-visitor-contact">
+            Contact Number
+          </label>
+          <input name="contact" id="booth-visitor-contact" type="tel" placeholder="Company or cellphone number" required>
+        </div>
+        <div class="input-group">
+          <label for="booth-visitor-invited">
+            Invited By Whom
+          </label>
+          <input name="invited" id="booth-visitor-invited" placeholder="Person who invited you" required>
+        </div>
+        <div class="input-group">
+          <label for="booth-visitor-paid">
+            Paid
+          </label>
+          <input name="paid" type="checkbox" id="booth-visitor-paid" value="Yes" required>
+        </div>
+        <div class="button-group">
+          <button class="button">Register</button>
+          <button class="button" type="reset">Reset</button>
+          <a class="button" onclick="changePage('home')">Home</a>
+        </div>
+      </form>
+    </div>
+  </section>
+</template>
+
+<script>
+  function handleBoothVisitorRegistration (form) {
+    processForm(form, 'processBoothVisitorRegistration', boothVisitorRegistrationCallback);
+  }
+
+  function boothVisitorRegistrationCallback (data) {
+    changePage('booth-visitor-registration-done');
+    afterNextRender(function () { printValue ('name', data.name); });
+  }
+</script>
